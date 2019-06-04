@@ -17,7 +17,7 @@ class Controller{
         }
     }
     getUsers(res){
-        User.find({}, (err, users)=>{
+        User.find({_id:"5cf48e6e1c9d440000a5ee4e"}, (err, users)=>{
             if(err) throw err;
             res.send( users );
         })
