@@ -17,9 +17,17 @@ class Controller{
         }
     }
     getUsers(res){
-        User.find({_id:"5cf48e6e1c9d440000a5ee4e"}, (err, users)=>{
+        User.find({}, (err, users)=>{
             if(err) throw err;
             res.send( users );
+        })
+    }
+
+    postUsers(req, res){
+        let users = req.body.users;
+        User.create( users, (err, result)=>{
+            if(err)throw err;
+            res. send({newUsers:result})
         })
     }
 }
