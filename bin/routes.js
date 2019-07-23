@@ -21,4 +21,29 @@ app.post("/users", (req, res)=>{
 })
 
 
+
+app.get("/products", (req, res) =>{
+
+    controller.getProducts(res);
+
+})
+
+app.post("/products", (req, res)=>{
+    //console.log(req.body);
+    controller.postProducts(req, res);
+})
+
+app.get("/persons", (req, res) =>{
+
+    controller.getPersons(res);
+
+})
+
+app.post("/persons", (req, res)=>{
+    //console.log(req.body);
+    controller.postPersons(req, res);
+})
+
+
+
 exports.app = app;

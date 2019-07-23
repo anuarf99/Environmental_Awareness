@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 const User = require("./models/User");
+const Product = require("./models/Product");
+const Person = require("./models/Person");
+
 
 class Controller{
     constructor(){
@@ -16,6 +19,10 @@ class Controller{
             console.error(e)
         }
     }
+
+
+
+
     getUsers(res){
         User.find({}, (err, users)=>{
             if(err) throw err;
@@ -30,5 +37,43 @@ class Controller{
             res. send({newUsers:result})
         })
     }
+
+
+
+
+ getProducts(res){
+        Product.find({}, (err, products)=>{
+            if(err) throw err;
+            res.send( products );
+        })
+    }
+
+    postProducts(req, res){
+        let products = req.body.products;
+        Product.create( products, (err, result)=>{
+            if(err)throw err;
+            res. send({newProducts:result})
+        })
+    }
+
+
+
+
+getPersons(res){
+        Person.find({}, (err, persons)=>{
+            if(err) throw err;
+            res.send( persons );
+        })
+    }
+
+postPersons(req, res){
+        let persons = req.body.persons;
+        Person.create( persons, (err, result)=>{
+            if(err)throw err;
+            res. send({newPersons:result})
+        })
+    }
+
+
 }
 exports.controller = new Controller()
