@@ -1,7 +1,7 @@
 # Environmental_Awareness:
 
  INTEGRANTES:
-  - Anuar Felípe González
+  - Anuar Felípe González Ortega
   - Xiomara Baza Castaño
-  - Juan Daniel Medrano
-  - Henry Junior Hoyos
+  - Juan Daniel Medrano Olivero
+  - Henry Junior Hoyos Garcia
