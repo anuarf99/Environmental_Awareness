@@ -33,15 +33,27 @@ app.post("/products", (req, res)=>{
     controller.postProducts(req, res);
 })
 
-app.get("/persons", (req, res) =>{
+app.get("/news", (req, res) =>{
 
-    controller.getPersons(res);
+    controller.getNews(res);
 
 })
 
-app.post("/persons", (req, res)=>{
+app.post("/news", (req, res)=>{
     //console.log(req.body);
-    controller.postPersons(req, res);
+    controller.postNews(req, res);
+})
+
+
+app.get("/forums", (req, res) =>{
+
+    controller.getForums(res);
+
+})
+
+app.post("/forums", (req, res)=>{
+    //console.log(req.body);
+    controller.postForums(req, res);
 })
 
 
