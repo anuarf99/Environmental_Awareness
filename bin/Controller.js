@@ -23,15 +23,25 @@ class Controller{
 
 
         //metodo para buscar todos los usuarios
-    getUsers(res){
+    getUsers(req, res){
         //en el modelo User se ejecuta el find sin ninguna condicion...
         User.find({}, (err, users)=>{
         //en caso de haberse presentado un error se ejecuta el error
             if(err) throw err;
         //de lo contrario se retorna un objeto con todos los resultados
-            res.send( users );
+            res.send({ allUsers: users });
         })
     }
+
+     getUser(id, res) {
+    //en el modelo User se ejecuta el find sin ninguna condicion...
+    User.find({ _id: id }, (err, user) => {
+      //en caso de haberse presentado un error se ejecuta el error
+      if (err) throw err;
+      //de lo contrario se retorna un objeto con todos los resultados
+      res.send({ User: user });
+    });
+  }
 
     postUsers(req, res){
         //en el modelo User se ejecuta el find sin ninguna condicion...
@@ -44,6 +54,30 @@ class Controller{
         })
     }
 
+updateUser(user, res) {
+    //optenemos los campos que queremos actualizar
+    let { id, picture, password } = user;
+    //actualizamos teniendo en cuenta una condicion con el operador $set
+    //https://docs.mongodb.com/manual/reference/operator/update/set/
+    User.updateOne(
+      { _id: id },
+      { $set: { picture: picture, password: password } }
+    )
+      .then(rawResponse => {
+        res.send({ message: "User updated", raw: rawResponse });
+      })
+      .catch(err => {
+        if (err) throw err;
+      });
+  }
+
+
+ deleteUser(id, res) {
+    User.deleteOne({ _id: id }, function(err) {
+      if (err) throw err;
+      res.send({ message: "User has been deleted" });
+    });
+  } // remove, findByIdAndRemove, findOneAndRemove
 
 
 

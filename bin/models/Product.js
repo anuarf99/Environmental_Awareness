@@ -7,6 +7,8 @@ const ProductSchema = new Schema({
     place_of_creation: String,
     type: String,
     route: String
+
+
 });
 
 var Product = mongoose.model("Product", ProductSchema);

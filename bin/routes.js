@@ -11,7 +11,7 @@ app.get("/", (req, res) =>{
 
 app.get("/users", (req, res) =>{
 
-    controller.getUsers(res);
+    controller.getUsers(req, res);
 
 })
 
@@ -20,6 +20,22 @@ app.post("/users", (req, res)=>{
     controller.postUsers(req, res);
 })
 
+app.get("/users/:id", function(req, res) {
+  let { id } = req.params;
+  controller.getUser(id, res);
+});
+
+app.put("/users/:id", function(req, res) {
+  let user = req.body.user;
+  user.id = req.params.id;
+  controller.updateUser(user, res);
+});
+
+
+app.delete("/users/:id", function(req, res) {
+  let { id } = req.params;
+  controller.deleteUser(id, res);
+});
 
 
 app.get("/products", (req, res) =>{
