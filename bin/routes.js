@@ -24,6 +24,21 @@ app.get("/users/:id", function(req, res) {
   let { id } = req.params;
   controller.getUser(id, res);
 });
+<<<<<<< HEAD
+=======
+
+app.put("/users/:id", function(req, res) {
+  let user = req.body.user;
+  user.id = req.params.id;
+  controller.updateUser(user, res);
+});
+
+
+app.delete("/users/:id", function(req, res) {
+  let { id } = req.params;
+  controller.deleteUser(id, res);
+});
+>>>>>>> 8dfe5b7673c4f43c16ea4cf662c512d7887a7aa3
 
 app.put("/users/:id", function(req, res) {
   let user = req.body.user;

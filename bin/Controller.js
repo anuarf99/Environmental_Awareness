@@ -31,7 +31,11 @@ class Controller{
         })
     }
 
+<<<<<<< HEAD
     getUser(id, res) {
+=======
+     getUser(id, res) {
+>>>>>>> 8dfe5b7673c4f43c16ea4cf662c512d7887a7aa3
     //en el modelo User se ejecuta el find sin ninguna condicion...
     User.find({ _id: id }, (err, user) => {
       //en caso de haberse presentado un error se ejecuta el error
@@ -52,14 +56,24 @@ class Controller{
         })
     }
 
+<<<<<<< HEAD
     updateUser(user, res) {
     //optenemos los campos que queremos actualizar
     let { id, nickname, password, picture } = user;
+=======
+updateUser(user, res) {
+    //optenemos los campos que queremos actualizar
+    let { id, picture, password } = user;
+>>>>>>> 8dfe5b7673c4f43c16ea4cf662c512d7887a7aa3
     //actualizamos teniendo en cuenta una condicion con el operador $set
     //https://docs.mongodb.com/manual/reference/operator/update/set/
     User.updateOne(
       { _id: id },
+<<<<<<< HEAD
       { $set: { picture: picture, password: password, nickname:nickname } }
+=======
+      { $set: { picture: picture, password: password } }
+>>>>>>> 8dfe5b7673c4f43c16ea4cf662c512d7887a7aa3
     )
       .then(rawResponse => {
         res.send({ message: "User updated", raw: rawResponse });
@@ -70,17 +84,30 @@ class Controller{
   }
 
 
+<<<<<<< HEAD
     deleteUser(id, res) {
+=======
+ deleteUser(id, res) {
+>>>>>>> 8dfe5b7673c4f43c16ea4cf662c512d7887a7aa3
     User.deleteOne({ _id: id }, function(err) {
       if (err) throw err;
       res.send({ message: "User has been deleted" });
     });
+<<<<<<< HEAD
   }
 
 
 
     getForums(req, res){
         Forums.find({}, (err, forums)=>{
+=======
+  } // remove, findByIdAndRemove, findOneAndRemove
+
+
+
+ getProducts(res){
+        Product.find({}, (err, products)=>{
+>>>>>>> 8dfe5b7673c4f43c16ea4cf662c512d7887a7aa3
             if(err) throw err;
             res.send({ allForums: forums });
         })
